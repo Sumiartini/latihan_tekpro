@@ -5,7 +5,7 @@
         <div class="col-sm-offset-2 col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    New Task
+                    Tambah Task
                 </div>
 
         <div class="panel-body">
@@ -43,7 +43,7 @@
     @if (count($tasks) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-            Current Task
+            Daftar Task
             </div>
         </div>
 
@@ -51,6 +51,15 @@
             <table class="table table-striped task-table">
                 <thead>
                     <th>Task</th>
+                    <th>
+                        <form class="form" method="get" action="{{ route('search') }}">
+                            <div class="form-group mb-0">
+                                <input type="text" name="search" class="form-control w-50 d-inline" id="search" placeholder="input keyword">
+                                <button type="submit" class="btn btn-primary mb-1">search</button>
+                            </div>
+                        </form>
+                    </th>
+                    
                     <th>&nbsp;</th>
                 </thead>
                 <tbody>

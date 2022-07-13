@@ -100,4 +100,10 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function search(Request $request){
+        $keyword = $request->search;
+        $tasks = Task::where('name','like',"%".$keyword."%")->paginate(5);
+        return view('tasks.index', compact('tasks'))->with('i',(request()->input('page',1) -1) * 5);
+    }
 }
